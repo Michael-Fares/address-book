@@ -1,25 +1,52 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import React from "react";
+import axios from "axios";
+import UserCard from "./UserCard";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      arrayOfUsers: [],
+      likedBeer: []
+    };
+  }
+
+  // componentDidMount is a react method that is called as soon as this app component has mounted.
+  componentDidMount() {
+    axios.get("https://randomuser.me/api?results=25").then((res) => {
+      const arrayOfUsers = res.data.results;
+      this.setState({ arrayOfUsers });
+      console.log("data", arrayOfUsers);
+    });
+  }
+  render() {
+    return (
+      <div className="App">
+        <header className="App-header">
+          <h1 style={{ textAlign: "center" }}>Address Book</h1>
+          <ol>
+            {this.state.arrayOfUsers.map((user, index) => {
+              return (
+                <UserCard
+                  key={index}
+                  index={index}
+                  picture={user.picture.large}
+                  name={`${user.name.title} ${user.name.first} ${user.name.last}`}
+                  location={`${user.location.street.number}
+                  ${user.location.street.name} ${user.location.city}, ${user.location.state}, ${user.location.country}, ${user.location.postcode}`}
+                  phone={`Phone: ${user.phone} Cellphone: ${user.cell}`}
+                />
+              );
+            })}
+          </ol>
+        </header>
+      </div>
+    );
+  }
 }
 
 export default App;
+// turn your functional component into a class-based component so you can create local state
+
