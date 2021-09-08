@@ -29,7 +29,7 @@ class App extends React.Component {
             {this.state.arrayOfUsers.map((user, index) => {
               return (
                 <UserCard
-                  key={index}
+                  key={user.email}
                   index={index}
                   picture={user.picture.large}
                   name={`${user.name.title} ${user.name.first} ${user.name.last}`}
