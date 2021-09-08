@@ -49,8 +49,9 @@ function UserCard(props) {
         <div>
           <p>{location}</p>
           <p>{phone}</p>
-          <p>{email}</p>
-          <p></p>
+          <div>
+            <p>{email}</p>
+          </div>
         </div>
       )}
     </li>

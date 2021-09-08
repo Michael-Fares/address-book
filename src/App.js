@@ -8,8 +8,7 @@ class App extends React.Component {
     super(props);
 
     this.state = {
-      arrayOfUsers: [],
-      likedBeer: []
+      arrayOfUsers: []
     };
   }
 
@@ -36,7 +35,7 @@ class App extends React.Component {
                   name={`${user.name.title} ${user.name.first} ${user.name.last}`}
                   location={`${user.location.street.number}
                   ${user.location.street.name} ${user.location.city}, ${user.location.state}, ${user.location.country}, ${user.location.postcode}`}
-                  phone={`Phone: ${user.phone} Cellphone: ${user.cell}`}
+                  phone={`Phone: ${user.phone} Cellphone: ${user.cell}`} email={`Email: ${user.email}`}
                 />
               );
             })}
