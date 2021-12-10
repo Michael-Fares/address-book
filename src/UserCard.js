@@ -9,10 +9,12 @@ function UserCard(props) {
     <li
       style={{
         listStyle: "none",
-        padding: "20px",
-        margin: "10px",
+        padding: "1rem",
+        margin: "1rem auto",
         boxShadow: "2px 2px 8px black",
-        backgroundColor: "#FFE3E3"
+        backgroundColor: "#FFE3E3",
+        width: "40vw",
+        minWidth: "250px"
       }}
     >
       <div
@@ -24,25 +26,29 @@ function UserCard(props) {
         <img
           src={picture}
           alt={`user ${name}`}
-          style={{ boxShadow: "2px 2px 2px" }}
+          style={{ boxShadow: "0 5px 10px black" }}
         />
-        <h3 style={{ marginLeft: "20px" }}> {name} </h3>
+          <div>
+            <h3 style={{ marginLeft: "3rem" }}> {name} </h3>
+            <button
+            style={{
+              border: "none",
+              padding: "8px",
+              cursor: "pointer",
+              color: "#FFE3E3",
+              backgroundColor: "black",
+              fontFamily: "Josefin Sans, cursive",
+              marginLeft: "3rem"
+            }}
+            onClick={() => {
+              isHidden ? setHide(false) : setHide(true);
+            }}
+          >
+            {isHidden ? "Show Details" : "Hide Details"}
+          </button>
+          </div>
       </div>
-      <button
-        style={{
-          border: "none",
-          padding: "8px",
-          cursor: "pointer",
-          color: "#FFE3E3",
-          backgroundColor: "black",
-          fontFamily: "Josefin Sans, cursive"
-        }}
-        onClick={() => {
-          isHidden ? setHide(false) : setHide(true);
-        }}
-      >
-        {isHidden ? "Show Details" : "Hide Details"}
-      </button>
+   
       {isHidden ? (
         <></>
       ) : (
