@@ -9,17 +9,18 @@ function UserCard(props) {
     <li
       style={{
         listStyle: "none",
-        padding: "1rem",
-        margin: "1rem auto",
+        padding: "1rem 2rem",
+        margin: "1rem",
         boxShadow: "2px 2px 8px black",
         backgroundColor: "#FFE3E3",
-        width: "40vw",
+        width: "50vw",
         minWidth: "250px"
       }}
     >
       <div
         style={{
           display: "flex",
+          alignItems: "center",
           marginBottom: "20px"
         }}
       >
@@ -29,7 +30,7 @@ function UserCard(props) {
           style={{ boxShadow: "0 5px 10px black" }}
         />
           <div>
-            <h3 style={{ marginLeft: "3rem" }}> {name} </h3>
+            <h3 style={{ marginLeft: "1.5rem" }}> {name} </h3>
             <button
             style={{
               border: "none",
@@ -38,7 +39,7 @@ function UserCard(props) {
               color: "#FFE3E3",
               backgroundColor: "black",
               fontFamily: "Josefin Sans, cursive",
-              marginLeft: "3rem"
+              marginLeft: "1.5rem"
             }}
             onClick={() => {
               isHidden ? setHide(false) : setHide(true);
@@ -52,7 +53,7 @@ function UserCard(props) {
       {isHidden ? (
         <></>
       ) : (
-        <div>
+        <div style={{ marginTop: "2rem" }}>
           <p>{location}</p>
           <p>{phone}</p>
           <div>

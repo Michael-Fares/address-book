@@ -25,7 +25,7 @@ class App extends React.Component {
       <div className="App">
         <header className="App-header">
           <h1 style={{ textAlign: "center" }}>Address Book</h1>
-          <ol>
+          <ol style={{display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center"}}>
             {this.state.arrayOfUsers.map((user, index) => {
               return (
                 <UserCard
